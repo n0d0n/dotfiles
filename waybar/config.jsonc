@@ -22,11 +22,19 @@
   // Configuration for the Hyprland workspaces module
   "hyprland/workspaces": {
     // Display format for each workspace
-    "format": "{id} - {icon}",
+    "format": "{icon}",
     // Icons for specific workspace states and numbers
     "format-icons": {
-      "1": "", // Terminal icon for workspace 1
-      "2": "", // Browser icon for workspace 2
+      "1": "[1] Term/IDE",
+      "2": "[2] Browser",
+      "3": "[3] Proxy",
+      "4": "[4] Other",
+      "5": "[5] Other",
+      "6": "[6] Other",
+      "7": "[7] Other",
+      "8": "[8] Other",
+      "9": "[9] Other",
+      "10": "[10] Other",
       "urgent": "", // Urgent workspace icon
       "focused": "", // Focused workspace icon
       "default": "" // Default workspace icon
