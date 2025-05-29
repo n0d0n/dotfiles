@@ -1,0 +1,109 @@
+// -*- mode: jsonc -*-
+// Main configuration for the status bar modules and appearance
+{
+  // Height of the bar in pixels
+  "height": 30,
+  // Spacing between modules in pixels
+  "spacing": 4,
+  // Modules displayed on the left side of the bar
+  "modules-left": [
+    "hyprland/workspaces", // Workspace indicator module
+    "hyprland/submap" // Submap status module
+  ],
+  // Modules displayed in the center of the bar (currently empty)
+  "modules-center": [],
+  // Modules displayed on the right side of the bar
+  "modules-right": [
+    "custom/youtube", // Custom YouTube module
+    "network", // Network status module
+    "pulseaudio", // Audio volume module
+    "clock" // Clock and calendar module
+  ],
+  // Configuration for the Hyprland workspaces module
+  "hyprland/workspaces": {
+    // Display format for each workspace
+    "format": "{id} - {icon}",
+    // Icons for specific workspace states and numbers
+    "format-icons": {
+      "1": "", // Terminal icon for workspace 1
+      "2": "", // Browser icon for workspace 2
+      "urgent": "", // Urgent workspace icon
+      "focused": "", // Focused workspace icon
+      "default": "" // Default workspace icon
+    }
+  },
+  // Configuration for the Hyprland submap module
+  "hyprland/submap": {
+    // Display format for the submap status
+    "format": "<span style=\"italic\">{}</span>"
+  },
+  // Configuration for the clock module
+  "clock": {
+    // Tooltip format showing year, month, and calendar
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    // Alternative format for displaying the date
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  // Configuration for the network status module
+  "network": {
+    // Uncomment and set to filter by interface name
+    // "interface": "wlp2*",
+    // Format for WiFi connections
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    // Format for Ethernet connections
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    // Tooltip format showing interface and gateway
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    // Format for linked interfaces without IP
+    "format-linked": "{ifname} (No IP) ",
+    // Format for disconnected state
+    "format-disconnected": "Disconnected ⚠",
+    // Alternative format for displaying interface and IP
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+  // Configuration for the PulseAudio volume module
+  "pulseaudio": {
+    // Uncomment to set volume scroll step
+    // "scroll-step": 1,
+    // Format for normal volume display
+    "format": "{volume}% {icon}",
+    // Format for Bluetooth audio devices
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    // Format for muted Bluetooth devices
+    "format-bluetooth-muted": " {icon} {format_source}",
+    // Format for muted state
+    "format-muted": " {format_source}",
+    // Format for audio source (microphone)
+    "format-source": "{volume}% ",
+    // Format for muted audio source
+    "format-source-muted": "",
+    // Icons for different audio devices and states
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      // Default icons for volume levels (low, medium, high)
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    // Command to run on click (opens PulseAudio control)
+    "on-click": "pavucontrol"
+  },
+  // Configuration for the custom YouTube module
+  "custom/youtube": {
+    // Display format for the module
+    "format": "{icon}",
+    // Icon to display for the module
+    "format-icons": "",
+    // Command to run on left click: opens YouTube link in Firefox if available
+    "on-click": "[[ $(cat /home/n0d0n/.youtube) ]] && firefox $(cat /home/n0d0n/.youtube)",
+    // Command to run on right click: copies clipboard content to .youtube file
+    "on-click-right": "copyq tab portapapeles read > /home/n0d0n/.youtube"
+  }
+}

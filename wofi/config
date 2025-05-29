@@ -1,0 +1,4 @@
+# Show run menu
+show=run
+# Parse additional arguments
+run-always_parse_args=true
