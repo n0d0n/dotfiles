@@ -43,3 +43,5 @@ require("lazy").setup({
     },
   },
 })
+
+require("copilot.command").disable()

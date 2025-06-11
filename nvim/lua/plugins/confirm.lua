@@ -7,6 +7,7 @@ return {
     formatters_by_ft = {
       -- For HTML files, use both 'prettier' and 'html_beautify' as formatters.
       html = { 'prettier', 'html_beautify' },
+      htmlangular = { 'prettier' }
     },
   },
 }
